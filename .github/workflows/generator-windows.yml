@@ -135,9 +135,9 @@ jobs:
 
       - name: Report Status
         uses: fjogeleit/http-request-action@v1
-        continue-on-error: true
+        continue-on-error: false
         with:
-          url: ${{ env.STATUS_URL }}
+          url: "http://192.168.10.8:8000/api"
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
           data: '{"uuid": "${{ inputs.uuid }}", "status": "5% complete"}'
